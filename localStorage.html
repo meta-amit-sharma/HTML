@@ -1,0 +1,16 @@
+<html>
+<body>
+
+<div id="display"></div>
+
+<script>
+if (typeof(Storage) !== "undefined") {
+    localStorage.setItem("name", "Amit");
+    document.getElementById("display").innerHTML = localStorage.getItem("name");
+} else {
+    document.getElementById("display").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+
+</body>
+</html>

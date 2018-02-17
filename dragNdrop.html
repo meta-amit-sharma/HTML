@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>
+Drag n drop example
+</title>
+<style>
+#div1 {
+    width: 350px;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("elementid", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("elementid");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<p>Drag the Oreo icon into the rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<img id="drag1" src="https://lh3.googleusercontent.com/krl72AYWGWgmhSCcdlHm-IgwkOBfdq6qVFIJtHxhfoSlMcrIgKdVhK-l-o800kv0m7uO=w300" draggable="true" ondragstart="drag(event)" width="336" height="336">
+
+</body>
+</html>
